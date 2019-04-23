@@ -1,0 +1,733 @@
+<template>
+<ui-view>
+  <ui-view class="chart_wrap">
+    <ui-view class="head_title">
+      <ui-view class="text">
+        清大政务 数据可视化展示
+        <ui-view style="left: 36px;" class="line"><ui-view></ui-view></ui-view>
+        <ui-view style="left: 50px;" class="line"><ui-view></ui-view></ui-view>
+        <ui-view style="right: 16px;" class="line"><ui-view></ui-view></ui-view>
+        <ui-view style="right: 30px;" class="line"><ui-view></ui-view></ui-view>
+      </ui-view>
+    </ui-view>
+    <ui-row class="content_wrap">
+      <ui-col vertical-align="top" align="center" width="580" class="left_content">
+        <ui-view class="show_content">
+          <ui-view class="corner t_r"></ui-view>
+          <ui-view class="corner l_b"></ui-view>
+          <ui-view class="corner t_l"></ui-view>
+          <ui-view class="corner r_b"></ui-view>
+          <ui-row class="ranking" height="50">
+            <ui-col vertical-align="middle" align="left" width="220">
+              <ui-view class="title">部门排名</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50" class="province_wrap">
+            <ui-col vertical-align="middle" align="left" width="20">
+              <ui-view class="dot">1</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="120">
+              <ui-view class="province">地方税务局</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="left" width="80" class="is_hide">
+              <ui-view class="num">3995</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="progress_win">
+                <ui-progress percent="90" stroke-width="10" active active-color="#277CCC,#00E5FF" border-radius="10" background-color="transparent"></ui-progress>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="80">
+              <ui-view class="num">3995</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50" class="province_wrap">
+            <ui-col vertical-align="middle" align="left" width="20">
+              <ui-view class="dot">2</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="120">
+              <ui-view class="province">质量技术监督局</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="left" width="80" class="is_hide">
+              <ui-view class="num">7056</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="progress_win">
+                <ui-progress percent="80" stroke-width="10" active active-color="#277CCC,#00E5FF" border-radius="10" background-color="transparent"></ui-progress>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="80">
+              <ui-view class="num">466</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50" class="province_wrap">
+            <ui-col vertical-align="middle" align="left" width="20">
+              <ui-view class="dot">3</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="120">
+              <ui-view class="province">环境保护局</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="left" width="80" class="is_hide">
+              <ui-view class="num">5925</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="progress_win">
+                <ui-progress percent="70" stroke-width="10" active active-color="#277CCC,#00E5FF" border-radius="10" background-color="transparent"></ui-progress>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="80">
+              <ui-view class="num">4113</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50" class="province_wrap">
+            <ui-col vertical-align="middle" align="left" width="20">
+              <ui-view class="dot">4</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="120">
+              <ui-view class="province">安全生产监督管理局</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="left" width="80" class="is_hide">
+              <ui-view class="num">1253</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="progress_win">
+                <ui-progress percent="60" stroke-width="10" active active-color="#277CCC,#00E5FF" border-radius="10" background-color="transparent"></ui-progress>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="80">
+              <ui-view class="num">456</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50" class="province_wrap">
+            <ui-col vertical-align="middle" align="left" width="20">
+              <ui-view class="dot">5</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="120">
+              <ui-view class="province">民政局</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="left" width="80" class="is_hide">
+              <ui-view class="num">741</ui-view>
+            </ui-col>
+
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="progress_win">
+                <ui-progress percent="50" stroke-width="10" active active-color="#277CCC,#00E5FF" border-radius="10" background-color="transparent"></ui-progress>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="80">
+              <ui-view class="num">7530</ui-view>
+            </ui-col>
+          </ui-row>
+        </ui-view>
+        <ui-view class="show_content" style="margin:0;">
+          <ui-view class="corner t_r"></ui-view>
+          <ui-view class="corner l_b"></ui-view>
+          <ui-view class="corner t_l"></ui-view>
+          <ui-view class="corner r_b"></ui-view>
+          <ui-row class="ranking" height="50">
+            <ui-col vertical-align="middle" align="left">
+              <ui-view class="title">办件时长分布</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row class="contrast">
+            <ui-col vertical-align="top" align="center" width="60">
+                <ui-view ui:for="{{ ageArry }}" ui:for-item="item">{{ item.age }}</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view style="width:100%">
+                <ui-contrast
+                  height="16"
+                  value="{{ item.value }}"
+                  color="{{ colorArry }}"
+                  mode="maximum"
+                  round-corner="true"
+                  ui:for="{{ contrast }}"
+                  ui:for-item="item"
+                ></ui-contrast>
+              </ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-legend
+            value="{{legendData.legend}}"
+            width="300"
+            height="40"
+            color-schema="{{ colorArry }}"
+            is-horizontal="true"
+            text-color="#fff"
+          >
+          </ui-legend>
+        </ui-view>
+      </ui-col>
+      <ui-col vertical-align="top" align="center" space="20">
+        <ui-view style="width:100%;">
+          <ui-row class="center_head" space-bottom="10">
+            <ui-col vertical-align="middle" align="right" space-right="50">
+              <ui-view class="number_wrap">
+                <ui-view class="title">今天累计人数</ui-view>
+                <ui-view class="title2">
+                  23153 人 <ui-text>较昨天增加 3000人</ui-text>
+                </ui-view>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="left" space-left="50">
+              <ui-view class="number_wrap">
+                <ui-view class="title">今天累计人数</ui-view>
+                <ui-view class="title2">
+                  23153 人 <ui-text>较昨天增加 3000人</ui-text>
+                </ui-view>
+              </ui-view>
+            </ui-col>
+             <ui-view  style="width: 100%;">  
+            <ui-line
+                id="line1"
+                value="{{data3}}"
+                height="300"
+                circle-joint-radius="2"
+                is-animated="false"
+                color-schema = "{{['purple']}}"
+                line-width = "2"
+                body-fill-color="rgba(0,0,0,.7)"
+                tooltip-width="150"
+                title-fill-color="#fff"
+                text-fill-color="#fff"
+                tooltip-text-color="#fff"
+                border-stroke-color="none"
+                x-axis-format="custom"
+                x-axis-custom-format="%d日"
+                x-ticks="{{8}}"
+                axis-color="#fff"
+            ></ui-line>
+            </ui-view>
+          </ui-row>
+          <ui-row class="center_top">
+            <ui-col vertical-align="top" align="left" space-right="10">
+              <ui-view class="show_content">
+                <ui-view class="corner t_r"></ui-view>
+                <ui-view class="corner l_b"></ui-view>
+                <ui-view class="corner t_l"></ui-view>
+                <ui-view class="corner r_b"></ui-view>
+              </ui-view>
+               <ui-step
+        value="{{data}}"
+        height="400"
+        color-schema="{{colorSchema}}"
+        tooltip="{{true}}"
+        body-fill-color="rgba(0,0,0,.7)"
+        value-text-fill-color="#fff"
+        name-text-fill-color="#fff"
+        axis-color="#fff"
+      ></ui-step>
+            </ui-col>
+
+          </ui-row>
+      </ui-col>
+      <ui-col vertical-align="top" align="center" width="400" class="right_content">
+        <ui-view class="show_content" style="margin:0;">
+          <ui-view class="corner t_r"></ui-view>
+          <ui-view class="corner l_b"></ui-view>
+          <ui-view class="corner t_l"></ui-view>
+          <ui-view class="corner r_b"></ui-view>
+          <ui-row class="ranking" height="50">
+            <ui-col vertical-align="middle" align="left">
+              <ui-view class="title">用户办事图</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-view style="width:250px;height:365px;margin:0 auto;">
+            <ui-multi-circular
+              left="140"
+              top="175"
+              width="250"
+              height="365"
+              value="{{ [40, 80, 70] }}"
+              gap="1"
+              color-array="{{ ['#CCBB0E', '#BA5B46', '#00A392'] }}"
+              line-width="20"
+              background-color="darken"
+              labels="{{ ['取号', '等待', '办理'] }}"
+              hover-style="darken"
+            ></ui-multi-circular>
+          </ui-view>
+          <ui-row class="ranking" height="50">
+            <ui-col vertical-align="middle" align="left">
+              <ui-view class="title">最快部门Top3</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row height="30" class="province_wrap">
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="text">部门</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="60">
+              <ui-view class="text">平均时长</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50" class="province_wrap" ui:for="{{ hotData }}" ui:for-item="item">
+            <ui-col vertical-align="middle" align="center" width="20">
+              <ui-view class="dot">{{ index+1 }}</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="province" style="width:90%">{{ item.name }}</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center" width="60">
+              <ui-view class="num">{{ item.num2 }}</ui-view>
+            </ui-col>
+          </ui-row>
+
+        </ui-view>
+      </ui-col>
+    </ui-row>
+  </ui-view>
+</ui-view>
+</template>
+<script>
+import * as echarts from "#/static/utils/echarts.min.js";
+import registerMap from "#/static/utils/china";
+registerMap(echarts);
+
+export default {
+  config: {},
+  data() {
+    return {
+      winHeight: ui.WIN_HEIGHT,
+      winWidth: ui.WIN_WIDTH,
+      colorArry: ["#69FFB7", "#29BBFE"],
+      ageArry: [
+        {
+          age: "地税"
+        },
+        {
+          age: "质检"
+        },
+        {
+          age: "环保"
+        },
+        {
+          age: "监管"
+        },
+        {
+          age: "民政"
+        },
+        {
+          age: "酒店"
+        }
+      ],
+      contrast: [
+        {
+          value: [80, 80]
+        },
+        {
+          value: [90, 90]
+        },
+        {
+          value: [80, 70]
+        },
+        {
+          value: [65, 60]
+        },
+        {
+          value: [40, 50]
+        },
+        {
+          value: [55, 40]
+        }
+      ],
+      legendData: {
+        legend: [
+          {
+            id: 1,
+            quantity: 134,
+            name: "人数"
+          },
+          {
+            id: 2,
+            quantity: 100,
+            name: "停留时间"
+          }
+        ]
+      },
+      hotData: [
+        {
+          name: "地方税务局",
+          num1: 1561,
+          num2: "3m20s",
+        },
+        {
+          name: "质量监管局",
+          num1: 2563,
+          num2: "4m55s",
+        },
+        {
+          name: "环境保护局",
+          num1: 2658,
+          num2:"5m30s",
+        }
+      ],
+      valueArray: [15, 30, 15, 20, 20],
+      colorArray: ["#0075AB", "#23966F", "#00A392", "#C87058", "#D6C40A"],
+      lineWidthArray: [8, 8, 8, 8, 8],
+      data2: {
+        dataByTopic: [
+          {
+            topicName: "游客趋势分析",
+            topic: 123,
+            color: "#13ACE2",
+            dates: [
+              {
+                date: "2017-01-22T00:08:00",
+                value: 3000
+              },
+              {
+                date: "2017-01-22T00:10:00",
+                value: 1500
+              },
+              {
+                date: "2017-01-22T00:12:00",
+                value: 3300
+              },
+              {
+                date: "2017-01-22T00:14:00",
+                value: 2800
+              },
+              {
+                date: "2017-01-22T00:16:00",
+                value: 2200
+              },
+              {
+                date: "2017-01-22T00:18:00",
+                value: 1800
+              },
+              {
+                date: "2017-01-22T00:00:00",
+                value: 380
+              }
+            ]
+          }
+        ]
+      },
+      isFixAxis: ui.IS_IOS,
+      resizeListener: null,
+      clickText: '',
+      data: [
+        {
+          value: 60,
+          key: '8点'
+        },
+        {
+          value: 250,
+          key: '9点'
+        },
+        {
+          value: 302,
+          key: '10点'
+        },
+        {
+          value: 152,
+          key: '11点'
+        },
+        {
+          value: 13,
+          key: '12点'
+        },
+        {
+          value: 250,
+          key: '13点'
+        },
+        {
+          value:320,
+          key: '14点'
+        },
+        {
+          value:200,
+          key: '15点'
+        },
+        {
+          value: 150,
+          key: '16点'
+        },
+        {
+          value: 80,
+          key: '17点'
+        },
+        {
+          value: 20,
+          key: '18点'
+        }
+       
+      ],
+      colorSchema: ['#70f0c7', '#41c4c9', '#fed009', '#fda71e', '#f65bb9','#70f0c7', '#41c4c9', '#fed009', '#fda71e', '#f65bb9', '#fda71e', '#f65bb9'],
+    data3: {
+        dataByTopic: [
+          {
+            topicName: '人数',
+            topic: 3000,
+            dates: [
+              {
+                date: '2019-01-01',
+                value: 1221
+              }, {
+                date: '2019-01-02',
+                value: 1495
+              },
+              {
+                date: '2019-01-03',
+                value: 1523
+              },
+              {
+                date: '2019-01-04',
+                value: 1623
+              },
+              {
+                date: '2019-01-05',
+                value: 925
+              },
+              {
+                date: '2019-01-06',
+                value: 2525
+              },
+              {
+                date: '2019-01-07',
+                value: 1215
+              },
+              {
+                date: '2019-01-08',
+                value: 1412
+              }
+            ]
+          }
+        ],
+        colorSchema: ['#e60012']
+      },
+    };
+  },
+  methods: {},
+  mounted() {
+
+  },
+  beforeDestroy() {
+    ui.removeWindowResizeListener(this.resizeListener);
+  }
+};
+</script>
+<style lang="less">
+.chart_wrap {
+  background: #0a4271;
+  overflow: hidden;
+  padding: 0 10px;
+  .head_title {
+    padding: 20px 0;
+    .text {
+      width: 880px;
+      height: 60px;
+      margin: auto;
+      background: url("~images/v-008/top_title.png") no-repeat center center;
+      background-size: 100%;
+      position: relative;
+      font-size: 35px;
+      color: #4cdaff;
+      line-height: 50px;
+      text-align: center;
+      letter-spacing: 3px;
+      .line {
+        width: 8px;
+        height: 50px;
+        position: absolute;
+        top: -30px;
+        background: #205aa4;
+        .ui-view {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #154d97;
+          border: 2px solid #4cdaff;
+          position: absolute;
+          top: 50%;
+          left: 1px;
+        }
+      }
+    }
+  }
+  .show_content {
+    width: 100%;
+    position: relative;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    background: rgba(15, 76, 128, 0.5);
+    .corner {
+      width: 10px;
+      height: 10px;
+      border: 2px solid #38b0d2;
+      position: absolute;
+      &.t_r {
+        border-bottom: 0;
+        border-left: 0;
+        top: 0;
+        right: 0;
+      }
+      &.l_b {
+        border-top: 0;
+        border-right: 0;
+        bottom: 0;
+        left: 0;
+      }
+      &.r_b {
+        border-top: 0;
+        border-left: 0;
+        bottom: 0;
+        right: 0;
+      }
+      &.t_l {
+        border-bottom: 0;
+        border-right: 0;
+        top: 0;
+        left: 0;
+      }
+    }
+    .ranking {
+      padding: 20px;
+    }
+    .title {
+      color: #41d8ed;
+      // text-indent: 1em;
+      font-size: 16px;
+      line-height: 50px;
+      text-align: left;
+    }
+    .province_wrap {
+      padding: 10px 20px;
+      .dot {
+        width: 20px;
+        height: 20px;
+        background: #49dbff;
+        border-radius: 50%;
+        line-height: 20px;
+        text-align: center;
+        font-size: 12px;
+        color: #061943;
+      }
+      .province {
+        width: 95px;
+        // height: 20px;
+        // text-align: center;
+        line-height: 20px;
+        font-size: 12px;
+        color: #fff;
+        background: #0075aa;
+      }
+      .num {
+        font-size: 12px;
+        color: #1fc9d6;
+      }
+      .text {
+        color: #fff;
+        font-size: 12px;
+      }
+      .progress_win {
+        width: 90%;
+        border: 1px solid #49d9fe;
+        border-radius: 10px;
+        padding: 0 2px 2px 2px;
+      }
+    }
+    .contrast {
+      .ui-view {
+        font-size: 14px;
+        color: #fff;
+        line-height: 16px;
+        margin-bottom: 22px;
+      }
+    }
+    .ui-contrast-bar {
+      margin-bottom: 22px;
+    }
+  }
+}
+.center_head {
+  .number_wrap {
+    padding: 10px;
+    border: 1px solid #14649a;
+    width: 250px;
+    .title {
+      font-size: 12px;
+      color: #fff;
+      text-align: center;
+    }
+    .title2 {
+      font-size: 24px;
+      color: #20d2d3;
+      .ui-text {
+        font-size: 12px;
+        color: #fff;
+      }
+    }
+  }
+}
+.circular {
+  position: relative;
+  .ui-view {
+    color: #fff;
+    font-size: 14px;
+    line-height: 30px;
+  }
+  .num {
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+    color: #1fc9d6;
+    top: 50%;
+    margin-top: -30px;
+  }
+}
+.proportion {
+  position: relative;
+  width: 100%;
+  .ui-circular {
+    display: inline-block;
+  }
+  .ui-view {
+    text-align: center;
+    line-height: 30px;
+    font-size: 12px;
+    color: #fff;
+    &.num {
+      width: 100%;
+      font-size: 20px;
+      line-height: 30px;
+      color: #1fc9d6;
+      position: absolute;
+      top: 50%;
+      margin-top: -15px;
+    }
+  }
+  .circular2 {
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 50%;
+    margin-left: -50px;
+  }
+}
+@media screen and (max-width: 1700px) and (min-width: 900px) {
+  .content_wrap {
+    > .ui-col {
+      &.left_content {
+        flex: 0 0 350px !important;
+        .is_hide {
+          display: none !important;
+        }
+      }
+      &.right_content {
+        flex: 0 0 330px !important;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1450px) and (min-width: 900px) {
+  .center_top {
+    > .ui-col {
+      padding: 0 !important;
+    }
+  }
+  .center_ishide {
+    display: none !important;
+  }
+}
+</style>

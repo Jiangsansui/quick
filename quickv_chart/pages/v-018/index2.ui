@@ -1,0 +1,588 @@
+<template>
+<ui-view>
+  <ui-view class="chart_wrap" style="{{{ 'min-height': winHeight + 'px' }}}">
+    <ui-view style="padding: 25px 0;"></ui-view>
+    <ui-view class="header_title">
+      <ui-text>龙湾区行政服务中心数据可视化</ui-text>
+    </ui-view>
+    <ui-row class="content_wrap">
+      <ui-col vertical-align="top" align="center" width="380" class="left_content">
+        <ui-view class="show_content b">
+          <ui-view class="title">人员效绩</ui-view>
+          <ui-view class="content_wrap">
+            <ui-legend
+            value="{{legendData.legend}}"
+            height="50"
+           
+            is-horizontal="true"
+            is-animated="true"
+            color-schema="{{legendData.colorSchema}}"
+            text-color="#fff"
+            ></ui-legend>
+            <ui-grouped-bar
+              value="{{groupData.data}}"
+              height="250"
+              is-animated="true"
+              name-label="date"
+              color-schema="{{groupData.colorSchema}}"
+               is-darker="true"
+              tooltip="true"
+              body-fill-color="rgba(0,0,0,.7)"
+              tooltip-width="150"
+              title-fill-color="#fff"
+              tooltip-text-color="#fff"
+              border-stroke-color="#fff"
+              margin="{{ groupData.margin }}"
+              axis-color="#fff"
+              format-date-option="no-format"
+            ></ui-grouped-bar>
+          </ui-view>
+        
+        </ui-view>
+        <ui-view class="show_content b">
+
+           <ui-view class="title">设备运行状态</ui-view>
+          <ui-view class="content_wrap">
+             <ui-stacked-area
+              class="stackedarea1"
+              value="{{ areaChartData.data }}"
+              height="350"
+              is-animated="true"
+              color-schema="{{ areaChartData.colorSchema }}"
+              body-fill-color="rgba(0,0,0,.7)"
+              tooltip-width="150"
+              title-fill-color="#fff"
+              text-fill-color="#fff"
+              tooltip-text-color="#fff"
+              border-stroke-color="#fff"
+              area-opacity="1"
+              fix-axis="{{ isFixAxis }}"
+              curve=true
+              x-axis-format="custom"
+              x-axis-custom-format="%H:%M"
+              >
+            </ui-stacked-area>
+          </ui-view>
+        </ui-view>
+      </ui-col>
+
+      <!-- 今日各部门排队人员情况 -->
+      <ui-col vertical-align="top" align="center" space="40" >   
+      <ui-view class="show_content a">
+      <ui-view class="content_wrap">
+            <ui-view class="title">今日各部门排队人员情况</ui-view>
+            <ui-grouped-bar
+              value="{{groupData.data}}"
+              height="300"
+              is-animated="true"
+              name-label="date" 
+              color-schema="{{groupData.colorSchema}}"
+              is-horizontal="true"
+              is-darker="true"
+              tooltip="true"
+              body-fill-color="rgba(0,0,0,.7)"
+              tooltip-width="150"
+              title-fill-color="#fff"
+              tooltip-text-color="#fff"
+              border-stroke-color="#fff"
+              margin="{{ groupData.margin }}"
+              axis-color="#fff"
+              format-date-option="no-format"
+            ></ui-grouped-bar>
+          </ui-view>
+        </ui-view>
+        
+         <ui-view class="show_content a">
+        
+          <ui-view class="content_wrap">
+            <ui-legend
+            value="{{legendData.legend}}"
+            height="50"
+            is-horizontal="true"
+            is-animated="true"
+            color-schema="{{legendData.colorSchema}}"
+            text-color="#fff"
+            ></ui-legend>
+            <ui-grouped-bar
+              value="{{groupData.data}}"
+              height="250"
+              is-animated="true"
+              name-label="date"
+              color-schema="{{groupData.colorSchema}}"
+               is-darker="true"
+              tooltip="true"
+              body-fill-color="rgba(0,0,0,.7)"
+              tooltip-width="150"
+              title-fill-color="#fff"
+              tooltip-text-color="#fff"
+              border-stroke-color="#fff"
+              margin="{{ groupData.margin }}"
+              axis-color="#fff"
+              format-date-option="no-format"
+            ></ui-grouped-bar>
+          </ui-view>
+        </ui-view>
+      </ui-col>
+      
+   
+     
+     <!-- 今日中心评价率 -->
+      <ui-col vertical-align="top" align="center" width="380" class="right_content">
+        <ui-view class="show_content">
+          <ui-view class="corner t_r"></ui-view>
+          <ui-view class="corner l_b"></ui-view>
+          <ui-view class="corner t_l"></ui-view>
+          <ui-view class="corner r_b"></ui-view>
+          <ui-row class="ranking" height="50">
+            <ui-col vertical-align="middle" align="left">
+              <ui-view class="title">出行方式</ui-view>
+            </ui-col>
+          </ui-row>
+          <ui-row>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="circular">
+                <ui-circular
+                  background-color="#0D6099"
+                  radius="40"
+                  top="40"
+                  left="40"
+                  color="#FBBB0C"
+                  value="92"
+                  line-width="8"
+                  line-cap="butt"
+                ></ui-circular>
+                <ui-view class="num">
+                  92<ui-text>%</ui-text>
+                </ui-view>
+                <ui-view>大巴</ui-view>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="circular">
+                <ui-circular
+                  background-color="#0D6099"
+                  radius="40"
+                  top="40"
+                  left="40"
+                  color="#FBBB0C"
+                  value="68"
+                  line-width="8"
+                  line-cap="butt"
+                ></ui-circular>
+                <ui-view class="num">
+                  68<ui-text>%</ui-text>
+                </ui-view>
+                <ui-view>动车</ui-view>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="circular">
+                <ui-circular
+                  background-color="#0D6099"
+                  radius="40"
+                  top="40"
+                  left="40"
+                  color="#FBBB0C"
+                  value="50"
+                  line-width="8"
+                  line-cap="butt"
+                ></ui-circular>
+                <ui-view class="num">
+                  50<ui-text>%</ui-text>
+                </ui-view>
+                <ui-view>自驾</ui-view>
+              </ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="center">
+              <ui-view class="circular">
+                <ui-circular
+                  background-color="#0D6099"
+                  radius="40"
+                  top="40"
+                  left="40"
+                  color="#FBBB0C"
+                  value="40"
+                  line-width="8"
+                  line-cap="butt"
+                ></ui-circular>
+                <ui-view class="num">
+                  40<ui-text>%</ui-text>
+                </ui-view>
+                <ui-view>飞机</ui-view>
+              </ui-view>
+            </ui-col>
+          </ui-row>
+        </ui-view>
+        <!-- <ui-view class="show_content c">
+            <ui-view class="title">今日中心评价</ui-view>
+          <ui-view class="content_wrap circleOne" style="height:300px;">
+            <ui-col vertical-align="middle">
+               <ui-view class="circular1">
+                  <ui-circular
+                    radius="60"
+                    top="60"
+                    left="80"
+                    color="#1A6DFB"
+                    value="98"
+                    line-width="8"
+                    line-cap="butt"
+                    background-color="#0C284C"
+                    ></ui-circular>
+                    <ui-view>98%</ui-view>
+                </ui-view>
+               
+              </ui-col>
+              <ui-col vertical-align="middle" align="center">
+                <ui-view class="circular1">
+                  <ui-circular
+                    radius="60"
+                    top="60"
+                    left="60"
+                    color="#1A6DFB"
+                    value="90"
+                    line-width="8"
+                    line-cap="butt"
+                    background-color="#0C284C"
+                    ></ui-circular>
+                    <ui-view>90%</ui-view>
+                </ui-view>
+              </ui-col>
+          </ui-view>
+        </ui-view> -->
+        <ui-view class="show_content c">
+          <ui-view class="title">质量控制</ui-view>
+          <ui-view class="content_wrap" style="height:300px;">
+            <ui-col vertical-align="middle" align="center">
+                <ui-view class="text1">B产品良品率</ui-view>
+                <ui-view class="circular1">
+                  <ui-circular
+                    radius="60"
+                    top="60"
+                    left="60"
+                    color="#1A6DFB"
+                    value="98"
+                    line-width="8"
+                    line-cap="butt"
+                    background-color="#0C284C"
+                    ></ui-circular>
+                    <ui-view>98%</ui-view>
+                </ui-view>
+              </ui-col>
+              <ui-col vertical-align="middle" align="center">
+                <ui-view class="text1">C产品良品率</ui-view>
+                <ui-view class="circular1">
+                  <ui-circular
+                    radius="60"
+                    top="60"
+                    left="60"
+                    color="#1A6DFB"
+                    value="90"
+                    line-width="8"
+                    line-cap="butt"
+                    background-color="#0C284C"
+                    ></ui-circular>
+                    <ui-view>90%</ui-view>
+                </ui-view>
+              </ui-col>
+          </ui-view>
+        </ui-view>
+      </ui-col>
+    </ui-row>
+  </ui-view>
+</ui-view>
+</template>
+<script>
+
+export default {
+  config: {
+
+  },
+  data () {
+    return {
+      winHeight: ui.WIN_HEIGHT,
+      winWidth: ui.WIN_WIDTH,
+      valueArray: [25, 40, 15, 20],
+      colorArray: ['#2EA9F9', '#E14432', '#F8A52C', '#12B188'],
+      lineWidthArray: [8, 8, 8, 8, 8],
+
+      groupData: {
+        data: [
+          {
+            group: '上海',
+            value: 1000,
+            date: '引领2',
+            color: "#E34354"
+          },
+
+          {
+            group: '北京',
+            value: 600,
+            date: '引领2',
+            color: "#25D4F4"
+          },
+          {
+            group: '上海',
+            value: 700,
+            date: '引领2',
+            color: "#E34354"
+          },
+
+          {
+            group: '北京',
+            value: 800,
+            date: '引领3',
+            color: "#25D4F4"
+          },
+          {
+            group: '上海',
+            value: 450,
+            date: '引领3',
+            color: "#E34354"
+          },
+
+          {
+            group: '北京',
+            value: 450,
+            date: '引领4',
+            color: "#25D4F4"
+          },
+          {
+            group: '上海',
+            value: 900,
+            date: '引领4',
+            color: "#E34354"
+          },
+
+          {
+            group: '北京',
+            value: 700,
+            date: '引领5',
+            color: "#25D4F4"
+          },
+          {
+            group: '上海',
+            value: 600,
+            date: '引领5',
+            color: "#E34354"
+          }
+        ],
+        colorSchema: ['#25D4F4', '#E34354', '#fdd210'],
+        margin: {
+          top: 0,
+          right: 20,
+          bottom: 20,
+          left: 50
+        }
+      },
+      
+      legendData: {
+        legend: [
+          {
+            id: 1,
+            quantity: 134,
+            name: '北京'
+          },
+          {
+            id: 2,
+            quantity: 100,
+            name: '上海'
+          }
+        ],
+        colorSchema: ['#25D4F4', '#E34354', '#fdd210']
+      },
+
+      isFixAxis: ui.IS_IOS,
+      areaChartData: {
+        data: [
+          {
+            date: '2011-10-20T00:00:00',
+            name: '票房',
+            value: 1900
+          },
+          {
+            date: '2011-10-20T03:00:00',
+            name: '票房',
+            value: 1720
+          },
+          {
+            date: '2011-10-20T06:00:00',
+            name: '票房',
+            value: 2500
+          },
+          {
+            date: '2011-10-20T09:00:00',
+            name: '票房',
+            value: 2100
+          },
+          {
+            date: '2011-10-20T12:00:00',
+            name: '票房',
+            value: 2900
+          },
+          {
+            date: '2011-10-20T15:00:00',
+            name: '票房',
+            value: 2000
+          },
+          {
+            date: '2011-10-20T18:00:00',
+            name: '票房',
+            value: 1800
+          }
+        ],
+        colorSchema: ['rgba(1, 227, 209, 1)'],
+        margin: {
+          top: 0,
+          right: 10,
+          bottom: 30,
+          left: 40
+        }
+      },
+      bar1: {
+        margin: {
+          left: 60,
+          right: 20,
+          top: 0,
+          bottom: 20
+        },
+      }
+    }
+  },
+  methods: {
+
+  },
+  mounted () {
+
+  }
+}
+</script>
+<style lang="less">
+.chart_wrap{
+
+  background: #071226 url('~images/v-010/bg.png') no-repeat center center;
+  overflow: hidden;
+  padding: 10px;
+  .header_title{
+    position: absolute;
+    top: 0px;
+    left: 1%;
+    width: 98%;
+    margin: auto;
+    overflow: hidden;
+    height: 90px;
+    background: url('~images/v-010/top_bg.png') no-repeat center 100%;
+    background-size: 100% 100%;
+    text-align: center;
+    .ui-text{
+      display: block;
+      font-size: 30px;
+      color: #1D85FD;
+      line-height: 90px;
+      letter-spacing: 3px;
+      font-weight: bold;
+      background-image: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(225, 234, 252, 1)), to(rgba(108, 140, 181, 1)));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+ 
+  
+  .a{
+    width:550px !important;
+    margin-top:70px;
+  }
+  .b{
+    margin-top: 30px;
+    margin-left:500px;
+  }
+   .c{
+ margin-top: 30px;
+ margin-right: 500px;
+  }
+  .show_content{
+    padding-bottom: 10px;
+    width:100%;
+    .title{
+      color: #2171CE;
+      font-size: 14px;
+      padding: 10px 0;
+      text-align:left;
+    }
+    .circleOne{
+      display: flex;
+      flex-direction: row;
+    }
+    .content_wrap{
+      padding: 10px;
+      margin-bottom: 10px;
+      background: rgba(15,76,128,.3);
+      box-shadow: 0 0 10px 3px rgba(32,132,255,.3);
+      overflow: hidden;
+      .message{
+        .ui-view{
+          color: #fff;
+          font-size:14px;
+          line-height:20px;
+        }
+      }
+      .yield{
+        font-size: 16px;
+        color: #2171CE;
+        line-height: 50px;
+        font-weight: bold;
+      }
+      .text1{
+        color: #9D95A2;
+        font-size: 16px;
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .yield_num{
+        width:100%;
+        .ui-row{
+          .ui-col{
+            font-size: 30px;
+            color: #fff;
+            line-height: 50px;
+            // width: 30px;
+            background: #2C3467;
+            &.line{
+              background: none;
+            }
+          }
+        }
+      }
+      .circular1{
+        width: 120px;
+        height:120px;
+        position: relative;
+        .ui-view{
+          position: absolute;
+          width: 100%;
+          line-height: 30px;
+          top: 50%;
+          margin-top:-15px;
+          color: #fff;
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1780px) and (min-width: 900px){
+  .content_wrap{
+    .left_content,
+    .right_content{
+      flex: 0 0 300px!important;
+    }
+  }
+}
+@media screen and (max-width: 1620px) and (min-width: 900px){
+  .is_hide{
+    display:none!important;
+  }
+}
+
+</style>

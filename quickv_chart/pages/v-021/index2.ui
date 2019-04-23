@@ -1,0 +1,303 @@
+<template>
+<ui-view>
+  <ui-view class="chart_wrap" style="{{{ 'min-height': winHeight + 'px' }}}">
+
+   <ui-row class="show_content">
+ 
+     <ui-col vertical-align="top" align="center">
+        <ui-view class="head_title">清大数据可视化展示</ui-view>
+         <ui-view class="content_win">
+        <ui-view class="corner t_r"></ui-view>
+        <ui-view class="corner l_b"></ui-view>
+        <ui-view class="corner t_l"></ui-view>
+        <ui-view class="corner r_b"></ui-view>
+        <ui-view class="title">办件动态</ui-view>
+        <ui-row class="case">
+          <ui-col vertical-align="top" align="center">
+            <ui-view class="case_right">
+              <ui-row height="20" class="head">
+                <ui-col vertical-align="middle" align="center" space-right="2">
+                  <ui-view>申报人</ui-view>
+                </ui-col>
+                <ui-col vertical-align="middle" align="center" space-right="2">
+                  <ui-view>申报号</ui-view>
+                </ui-col>
+                <ui-col vertical-align="middle" align="center" space-right="2">
+                  <ui-view>申请事项</ui-view>
+                </ui-col>
+                <ui-col vertical-align="middle" align="center" space-right="2">
+                  <ui-view>申报时间</ui-view>
+                </ui-col>
+              </ui-row>
+              <ui-row height="62" class="right_list" ui:for="{{ caseList }}" ui:for-item="item">
+                <ui-col vertical-align="middle" align="center">{{item.Name}}</ui-col>
+                <ui-col vertical-align="middle" align="center">{{item.Number}}</ui-col>
+                <ui-col vertical-align="middle" align="center">{{item.Matter}}</ui-col>
+                <ui-col vertical-align="middle" align="center">{{item.AgentTime}}</ui-col>
+              </ui-row>
+            </ui-view>
+          </ui-col>
+        </ui-row>
+      </ui-view>
+     </ui-col>
+   
+   </ui-row>
+  </ui-view>
+</ui-view>
+</template>
+<script>
+import * as echarts from '#/static/utils/echarts.min.js'
+import registerMap from '#/static/utils/china'
+registerMap(echarts)
+
+export default {
+  config: {
+
+  },
+  data () {
+    return {
+      winHeight: ui.WIN_HEIGHT,
+      winWidth: ui.WIN_WIDTH,
+      warn:[1,1,1,1,1,1,1,1,1,1,1],
+      caseList:[ {
+          Name: '林剑豪',
+          Number:'33012415101',
+          Matter:'失业登记主项',
+          AgentTime:"2019.3.26 10:12:54"
+        }, {
+            Name: '林见豪',
+          Number:'33012415102',
+          Matter:'失业登记主项',
+          AgentTime:"2019.3.26 10:12:54"
+        }, {
+            Name: '林建号',
+          Number:'33012415103',
+          Matter:'失业登记主项',
+          AgentTime:"2019.3.26 10:12:54"
+        }, {
+            Name: '林减号',
+          Number:'33012415104',
+          Matter:'失业登记主项',
+          AgentTime:"2019.3.26 10:12:54"
+        }, {
+            Name: '零见好',
+          Number:'33012415105',
+          Matter:'失业登记主项',
+          AgentTime:"2019.3.26 10:12:54"
+        }, {
+            Name: '灵剑豪',
+          Number:'33012415106',
+          Matter:'失业登记主项',
+          AgentTime:"2019.3.26 10:12:54"
+        }]
+    }
+  },
+  methods: {
+
+  }
+}
+</script>
+<style lang="less">
+.chart_wrap{
+  background: #12223B;
+  overflow: hidden;
+  .show_content{
+      height: 100vh;
+    padding:10px;
+    .head_title{
+        flex: 1;
+      width:100%;
+      font-size: 20px;
+      color: #09C2F2;
+      text-align: center;
+      line-height: 56px;
+      font-weight: bold;
+      border-bottom: 1px solid #22283E;
+    }
+    .content_win{
+        height: 100%;
+      width: 100%;
+      position: relative;
+      margin-bottom: 20px;
+      border: 1px solid #077CCB;
+      -webkit-box-shadow:0 0 60px #1E5A88 inset;
+      -moz-box-shadow:0 0 60px #1E5A88 inset;
+      box-shadow:0 0 60px #1E5A88 inset;
+      padding-bottom: 15px;
+      background: #041633;
+      background-image: repeating-linear-gradient(125deg,
+      hsla(0,0%,100%,.05),
+      hsla(0,0%,100%,.05)4px,
+      transparent 0,transparent 9px);
+      .corner{
+        width: 10px;
+        height: 10px;
+        border: 2px solid #49C7D9;
+        position: absolute;
+        &.t_r{
+          border-bottom: 0;
+          border-left: 0;
+          top: 0;
+          right: 0;
+        }
+        &.l_b{
+          border-top: 0;
+          border-right: 0;
+          bottom: 0;
+          left: 0;
+        }
+        &.r_b{
+          border-top: 0;
+          border-left: 0;
+          bottom: 0;
+          right: 0;
+        }
+        &.t_l{
+          border-bottom: 0;
+          border-right: 0;
+          top: 0;
+          left: 0;
+        }
+      }
+      .title{
+        color: #C6E6FB;
+        text-indent: 1em;
+        font-size: 16px;
+        line-height: 50px;
+        font-weight: bold;
+        text-align:left;
+      }
+      .small_title{
+        font-size: 14px;
+        color: #15CBFA;
+        text-align: center;
+        line-height: 25px;
+        &.small_title2{
+          color:#fff;
+        }
+      }
+      .title2{
+        width: 95%;
+        margin: auto;
+        color: #15CBFA;
+        line-height: 30px;
+        text-align:left;
+        font-size: 14px;
+        text-indent: 3em;
+        background: rgba(21,203,250,.3) url('~images/v-021/title.png') no-repeat 10px center;
+      }
+      .sort{
+        width: 95%;
+        margin: auto;
+        border-bottom: 1px dashed #416074;
+        .name{
+          color: #14CAF9;
+          font-size: 14px;
+        }
+        .name_text{
+          .ui-text{
+            line-height: 40px;
+            color: #fff;
+            font-size: 14px;
+            margin-right:10px;
+          }
+        }
+      }
+      .grade{
+        padding: 30px 0;
+        width: 95%;
+        margin: auto;
+        text-align:left;
+        .ui-view{
+          display:inline-block;
+          padding: 0 30px;
+          color: #fff;
+          line-height: 25px;
+          font-size: 14px;
+          margin: 0 10px;
+          &:hover,
+          &.active{
+            border-radius: 3px;
+            background: #FE5722;
+          }
+        }
+      }
+      .territory{
+        width: 95%;
+        margin: auto;
+        padding: 20px 0;
+        .ui-col{
+          color: #fff;
+          font-size: 14px;
+        }
+      }
+      .warn{
+        .ui-view{
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #41C3E3;
+        }
+        .ui-col{
+          color: #fff;
+          font-size: 14px;
+        }
+      }
+      .case{
+        .case_left{
+          width:100%;
+          .ui-text{
+            color: #fff;
+            font-size: 18px;
+            line-height: 40px;
+          }
+          .ui-view{
+            display: inline-block;
+            padding: 0px 8px;
+            line-height: 20px;
+            color: #fff;
+            background: #FF5521;
+            border-radius: 3px;
+            font-size: 14px;
+          }
+        }
+        .case_right{
+          width:100%;
+          .head{
+            .ui-view{
+              width:100%;
+              background: rgba(225,225,225,.3);
+              // line-height: 20px;
+              color:#fff;
+            }
+          }
+          .right_list{
+            .ui-col{
+              color:#fff;
+              font-size:12px;
+            }
+          }
+        }
+      }
+    }
+    .container{
+      width:100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) and (min-width: 900px){
+  .show_content{
+    .left_content{
+      flex: 0 0 350px!important;
+      .grade{
+        width:100%!important;
+      }
+    }
+    .right_content{
+      flex: 0 0 400px!important;
+    }
+  }
+}
+
+</style>
